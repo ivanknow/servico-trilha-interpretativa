@@ -1,12 +1,20 @@
 <?php
 // Routes
+use Psr\Http\Message\ResponseInterface;
+use TrilhasInterpretativas\Mediator\TrailMediator;
 
 $app->get('/demo/[{name}]', function ($request, $response, $args) {
-   /* // Sample log message
+    // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
 
     // Render index view
-    return $this->renderer->render($response, 'index.phtml', $args);*/
+    return $this->renderer->render($response, 'index.phtml', $args);
+});
+
+$app->get('/point', function ($request, $response, $args) {
+    $mediator = new TrailMediator();
+    $data = $mediator->get(0);
+    return $response->withJson($data->toArray());
 });
 
 $app->get('/{name}', function ($request, $response, $args) {
@@ -27,3 +35,6 @@ $app->get('/', function ($request, $response, $args) {
 
     return $response;
 });
+
+
+
