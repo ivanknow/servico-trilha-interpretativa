@@ -10,9 +10,26 @@ use TrilhasInterpretativas\Entity\Entity;
  */
 class Local extends Entity{
 
+ /**
+  *	@var integer @Id
+  *      @Column(name="id", type="integer")
+  *      @GeneratedValue(strategy="AUTO")
+  */
 private $id;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $latitude;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $longitude;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $altitude;
 public function __construct($id = 0,$latitude= 0.0,$longitude= 0.0,$altitude= 0.0){
 $this->id = $id;

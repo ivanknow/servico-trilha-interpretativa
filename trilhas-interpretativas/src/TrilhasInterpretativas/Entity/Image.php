@@ -11,9 +11,28 @@ use TrilhasInterpretativas\Entity\Entity;
  */
 class Image extends Entity{
 
+  /**
+  *	@var integer @Id
+  *      @Column(name="id", type="integer")
+  *      @GeneratedValue(strategy="AUTO")
+  */
 private $id;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $src;
-public function __construct($id = 0,$src= 0.0){
+
+// ...
+    /**
+     * Many Features have One Product.
+     * @ManyToOne(targetEntity="Point", inversedBy="images")
+     * @JoinColumn(name="point_id", referencedColumnName="id")
+     */
+     
+     private $point;
+
+public function __construct($id = 0,$src=""){
 $this->id = $id;
 $this->src = $src;
 
@@ -42,6 +61,16 @@ return $this->src;
 public function setSrc($src){
  $this->src=$src;
 }
+
+public function getPoint(){
+return $this->point;
+}
+
+public function setPoint($point){
+ $this->point=$point;
+}
+
+
 public function equals($object){
 if($object instanceof Image){
 

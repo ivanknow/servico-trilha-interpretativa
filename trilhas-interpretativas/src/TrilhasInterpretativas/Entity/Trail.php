@@ -7,12 +7,25 @@ use TrilhasInterpretativas\Entity\Entity;
 
 /**
  * @Entity
- * @Table(name="point")
+ * @Table(name="trail")
  */
 class Trail extends Entity{
 
+ /**
+  *	@var integer @Id
+  *      @Column(name="id", type="integer")
+  *      @GeneratedValue(strategy="AUTO")
+  */
 private $id;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $title;
+  /**
+     * One Product has Many Features.
+     * @OneToMany(targetEntity="Point", mappedBy="trail")
+     */
 private $points;
 public function __construct($id = 0,$title= "" ,$points= array()){
 $this->id = $id;

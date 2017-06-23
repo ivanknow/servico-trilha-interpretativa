@@ -10,10 +10,35 @@ use TrilhasInterpretativas\Entity\Entity;
  */
 class Point extends Entity{
 
+ /**
+  *	@var integer @Id
+  *      @Column(name="id", type="integer")
+  *      @GeneratedValue(strategy="AUTO")
+  */
 private $id;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $descricao;
+/**
+     * @OneToOne(targetEntity="Local")
+     * @JoinColumn(name="local_id", referencedColumnName="id")
+     */
 private $local;
+
+  /**
+     
+     * @OneToMany(targetEntity="Image", mappedBy="point")
+     */
 private $images;
+    /**
+     * Many Features have One Product.
+     * @ManyToOne(targetEntity="trail", inversedBy="points")
+     * @JoinColumn(name="trail_id", referencedColumnName="id")
+     */
+     
+     private $trail;
 public function __construct($id = 0,$descricao= "" ,$local= null ,$images= array()){
 $this->id = $id;
 $this->descricao = $descricao;
@@ -55,6 +80,15 @@ return $this->local;
 public function setLocal($local){
  $this->local=$local;
 }
+
+public function getTrail(){
+return $this->trail;
+}
+
+public function setTrail($trail){
+ $this->trail=$trail;
+}
+
 
 public function getImages(){
 return $this->images;
