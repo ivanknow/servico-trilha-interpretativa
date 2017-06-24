@@ -17,7 +17,7 @@ class TrailMediator {
 	
 	
 	 public function get($id){
-	      $trail = new Trail(0,"Trilha dois Irmãos");
+	      $trail = new Trail(0,"Trilha dois Irmãos","Seja bem vindo");
 	      
 	      $trail->setPoints($this->pointMediator->get());
 	      

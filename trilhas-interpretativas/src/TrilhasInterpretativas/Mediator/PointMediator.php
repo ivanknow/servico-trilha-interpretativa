@@ -24,7 +24,7 @@ class PointMediator {
 	     
 	     $local = new Local(0,-27.5752847,-48.5105891,0);
 	     
-	     $point = new Point(1,"Cozinha nossa pia sempre suja",$local,$images);
+	     $point = new Point(1,"Cozinha","Cozinha nossa pia sempre suja",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
@@ -35,7 +35,7 @@ class PointMediator {
 	     
 	     $local = new Local(0,-27.5752663,-48.510453,0);
 	     
-	     $point = new Point(1,"Predio 1",$local,$images);
+	     $point = new Point(2,"Predio 1","Predio 1",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
@@ -46,7 +46,7 @@ class PointMediator {
 	     
 	     $local = new Local(3,-27.5750697,-48.5104753,0);
 	     
-	     $point = new Point(1,"Predio 2",$local,$images);
+	     $point = new Point(3,"Predio 2","Predio 2",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
@@ -57,7 +57,7 @@ class PointMediator {
 	     
 	     $local = new Local(3,-27.5751929,-48.5105472,0.1);
 	     
-	     $point = new Point(1,"Predio 3",$local,$images);
+	     $point = new Point(4,"Predio 3","Predio 3",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================

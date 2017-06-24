@@ -20,6 +20,11 @@ private $id;
  *
  * @var string @Column(type="string", length=255)
  */
+private $title;
+/**
+ *
+ * @var string @Column(type="string", length=255)
+ */
 private $descricao;
 /**
      * @OneToOne(targetEntity="Local")
@@ -39,8 +44,9 @@ private $images;
      */
      
      private $trail;
-public function __construct($id = 0,$descricao= "" ,$local= null ,$images= array()){
+public function __construct($id = 0,$title="",$descricao= "" ,$local= null ,$images= array()){
 $this->id = $id;
+$this->title = $title;
 $this->descricao = $descricao;
 $this->local = $local;
 $this->images = $images;
@@ -50,6 +56,7 @@ $this->images = $images;
 public static function construct($array){
 $obj = new Point();
 $obj->setId( $array['id']);
+$obj->setTitle( $array['title']);
 $obj->setDescricao( $array['descricao']);
 $obj->setLocal( $array['local']);
 $obj->setImages( $array['images']);
@@ -63,6 +70,14 @@ return $this->id;
 
 public function setId($id){
  $this->id=$id;
+}
+
+public function getTitle(){
+return $this->title;
+}
+
+public function setTitle($title){
+ $this->title=$title;
 }
 
 public function getDescricao(){
