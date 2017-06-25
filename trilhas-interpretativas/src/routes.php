@@ -11,7 +11,7 @@ $app->get('/demo/[{name}]', function ($request, $response, $args) {
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
-$app->get('/point', function ($request, $response, $args) {
+$app->get('/trail', function ($request, $response, $args) {
     $mediator = new TrailMediator();
     $data = $mediator->get(0);
     return $response->withJson($data->toArray());
