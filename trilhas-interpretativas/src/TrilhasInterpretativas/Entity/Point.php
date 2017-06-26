@@ -25,7 +25,7 @@ private $title;
  *
  * @var string @Column(type="string", length=255)
  */
-private $descricao;
+private $desc;
 /**
      * @OneToOne(targetEntity="Local")
      * @JoinColumn(name="local_id", referencedColumnName="id")
@@ -44,10 +44,10 @@ private $images;
      */
      
      private $trail;
-public function __construct($id = 0,$title="",$descricao= "" ,$local= null ,$images= array()){
+public function __construct($id = 0,$title="",$desc= "" ,$local= null ,$images= array()){
 $this->id = $id;
 $this->title = $title;
-$this->descricao = $descricao;
+$this->desc = $desc;
 $this->local = $local;
 $this->images = $images;
 
@@ -57,7 +57,7 @@ public static function construct($array){
 $obj = new Point();
 $obj->setId( $array['id']);
 $obj->setTitle( $array['title']);
-$obj->setDescricao( $array['descricao']);
+$obj->setDesc( $array['desc']);
 $obj->setLocal( $array['local']);
 $obj->setImages( $array['images']);
 return $obj;
@@ -80,12 +80,12 @@ public function setTitle($title){
  $this->title=$title;
 }
 
-public function getDescricao(){
-return $this->descricao;
+public function getDesc(){
+return $this->desc;
 }
 
-public function setDescricao($descricao){
- $this->descricao=$descricao;
+public function setDesc($desc){
+ $this->desc=$desc;
 }
 
 public function getLocal(){
@@ -120,7 +120,7 @@ return false;
 
 }
 
-if($this->descricao!=$object->descricao){
+if($this->desc!=$object->desc){
 return false;
 
 }
@@ -146,7 +146,7 @@ return false;
 
 public function toString(){
 
- return "  [id:" .$this->id. "]  [descricao:" .$this->descricao. "]  [local:" .$this->local. "]  [images:" .$this->images. "]  " ;
+ return "  [id:" .$this->id. "]  [desc:" .$this->desc. "]  [local:" .$this->local. "]  [images:" .$this->images. "]  " ;
 }
 
 }
