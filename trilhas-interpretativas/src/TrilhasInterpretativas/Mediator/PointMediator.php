@@ -18,46 +18,68 @@ class PointMediator {
 	     
 	     $points = [];
 	     
-	     $image = new Image(1,"res/image1.jpg");
+	     $image = new Image(1,"image1.jpg");
 	     
 	      $images =  array($image);
 	     
-	     $local = new Local(0,-27.5752847,-48.5105891,0);
+	     $local = new Local(0,-27.5749595,-48.5103458,0);
 	     
-	     $point = new Point(1,"Cozinha","Cozinha nossa pia sempre suja",$local,$images);
+	     $point = new Point(1,"McFadyen","McFadyen",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
 	     
-	     $image = new Image(2,"res/image2.jpg");
+	     $image = new Image(2,"image2.jpg");
 	     
 	     $images =  array($image);
 	     
-	     $local = new Local(0,-27.5752663,-48.510453,0);
+	     $local = new Local(0,-27.5758803,-48.5083286,0);
 	     
-	     $point = new Point(2,"Predio 1","Predio 1",$local,$images);
+	     $point = new Point(2,"Escola","Escola",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
 	     
-	     $image = new Image(3,"res/image3.jpg");
+	     $image = new Image(3,"image3.jpg");
 	     
 	      $images =  array($image);
 	     
-	     $local = new Local(3,-27.5750697,-48.5104753,0);
+	     $local = new Local(3,-27.5792366,-48.504707,0);
 	     
-	     $point = new Point(3,"Predio 2","Predio 2",$local,$images);
+	     $point = new Point(3,"Acai","Acai",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
 	     
-	      $image = new Image(4,"res/image4.jpg");
+	      $image = new Image(4,"image4.jpg");
 	     
 	     $images =  array($image);
 	     
-	     $local = new Local(3,-27.5751929,-48.5105472,0.1);
+	     $local = new Local(3,-27.5818267,-48.5039379,0.1);
 	     
-	     $point = new Point(4,"Predio 3","Predio 3",$local,$images);
+	     $point = new Point(4,"Udesc","Udesc",$local,$images);
+	     
+	     $points[] = $point;
+	     //=====================================================================
+
+		  $image = new Image(5,"image5.jpg");
+	     
+	      $images =  array($image);
+	     
+	     $local = new Local(5,-27.5792366,-48.504707,0);
+	     
+	     $point = new Point(5,"Padaria","Padaria",$local,$images);
+	     
+	     $points[] = $point;
+	     //=====================================================================
+	     
+	      $image = new Image(6,"image6.jpg");
+	     
+	     $images =  array($image);
+	     
+	     $local = new Local(6,-27.5818267,-48.5039379,0.1);
+	     
+	     $point = new Point(6,"Quase em casa","Quase em casa",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
