@@ -66,9 +66,9 @@ class PointMediator {
 	     
 	      $images =  array($image);
 	     
-	     $local = new Local(5,-27.5792366,-48.504707,0);
+	     $local = new Local(5,-27.5837748,-48.4996094,0);
 	     
-	     $point = new Point(5,"Padaria","Padaria",$local,$images);
+	     $point = new Point(5,"Padaria que nunca comi","Nunca comi aqui e a única vez que tentei não tinha pão de queijo. O que me resta?",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
@@ -77,9 +77,9 @@ class PointMediator {
 	     
 	     $images =  array($image);
 	     
-	     $local = new Local(6,-27.5818267,-48.5039379,0.1);
+	     $local = new Local(6,-27.5862805,-48.4971682,0.0);
 	     
-	     $point = new Point(6,"Quase em casa","Quase em casa",$local,$images);
+	     $point = new Point(6,"Quase em casa","Na subida do morrinho, onde o ar se esvai",$local,$images);
 	     
 	     $points[] = $point;
 	     //=====================================================================
