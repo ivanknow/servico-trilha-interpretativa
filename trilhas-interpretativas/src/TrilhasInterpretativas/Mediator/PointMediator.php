@@ -4,17 +4,18 @@ namespace TrilhasInterpretativas\Mediator;
 use TrilhasInterpretativas\Entity\Point;
 use TrilhasInterpretativas\Entity\Image;
 use TrilhasInterpretativas\Entity\Local;
+use TrilhasInterpretativas\DAO\PointDAO;
 
 use Exception;
-class PointMediator {
+class PointMediator extends AbstractMediator{
 	// attr
-	private $dao;
+
 	public function __construct() {
-      
+       parent::__construct(new PointDAO ());
 	}
 	
 	
-	 public function get($id=0){
+	 public function getMock($id=0){
 	     
 	     $points = [];
 	     
