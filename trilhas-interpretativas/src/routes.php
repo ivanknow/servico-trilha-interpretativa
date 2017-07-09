@@ -22,10 +22,18 @@ $app->get('/trail/[{id}]', function ($request, $response, $args) {
     $data = $mediator->get($request->getAttribute('id'));
     return $response->withJson($data);
 });
+$app->post('/trail/', function ($request, $response, $args) {
+    $mediator = new TrailMediator();
+    $trail = Trail::construct($request->getParsedBody());
+    
+   /* $data = $mediator->insert($request->getAttribute('id'));
+    return $response->withJson($data);*/
+});
 
 $app->post('/trail/{id}/point/', function ($request, $response, $args) {
     $mediator = new PointMediator();
     $point = new Point();
+    
    /* $data = $mediator->insert($request->getAttribute('id'));
     return $response->withJson($data);*/
 });

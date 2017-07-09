@@ -24,9 +24,12 @@ class TrailMediator extends AbstractMediator{
 	      $trail->setPoints($this->pointMediator->getMock());
 	       return $trail;
 	 }
+	 
      public  function insert($json){
-     	
+     	$trail = new Trail(0,$json->title,$json->desc);
+    	$this->getDao ()->insert ( $trail );
      }
+     
 	 public  function update($id, $json){}
 	 public  function delete($id){}
 }

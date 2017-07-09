@@ -45,7 +45,7 @@ $obj = new Trail();
 $obj->setId( $array['id']);
 $obj->setTitle( $array['title']);
 $obj->setDesc( $array['desc']);
-$obj->setPoints( $array['points']);
+ //$obj->setPoints( $array['points']);
 return $obj;
 
 }
