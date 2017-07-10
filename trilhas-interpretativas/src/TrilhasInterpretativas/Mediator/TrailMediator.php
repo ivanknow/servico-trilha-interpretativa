@@ -9,27 +9,36 @@ use TrilhasInterpretativas\Entity\Point;
 use Exception;
 
 class TrailMediator extends AbstractMediator{
-	
+
 	private  $pointMediator;
-	
+
 	public function __construct() {
 	parent::__construct(new TrailDAO ());
       $this->pointMediator =  new PointMediator();
 	}
-	
-	
+
+	public function get($id) {
+
+		$data = parent::get($id);
+		if(!is_array($data) && $data!=null){
+		$data->setPoints($this->pointMediator->get());
+		}
+
+		return $data;
+	}
+
 	 public function getMock($id=0){
 	      $trail = new Trail(0,"Trilha dois Irmãos","Seja bem vindo");
-	      
+
 	      $trail->setPoints($this->pointMediator->getMock());
 	       return $trail;
 	 }
-	 
-     public  function insert($json){
-     	$trail = new Trail(0,$json->title,$json->desc);
-    	$this->getDao ()->insert ( $trail );
+
+     public  function insert($trail){
+
+    	return $this->getDao()->insert ( $trail );
      }
-     
+
 	 public  function update($id, $json){}
 	 public  function delete($id){}
 }

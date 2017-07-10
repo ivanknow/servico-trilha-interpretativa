@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace TrilhasInterpretativas\Entity;
 
 
@@ -9,7 +9,7 @@ abstract public function toString();
 
 
 public function getAvoidedFields() {
-		return array ();
+		return array ("__initializer__","__cloner__","__isInitialized__");
 	}
 
 public function toArray() {

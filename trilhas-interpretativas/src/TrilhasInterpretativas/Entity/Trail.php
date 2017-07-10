@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace TrilhasInterpretativas\Entity;
 
@@ -26,16 +26,16 @@ private $title;
  *
  * @var string @Column(type="string", length=255)
  */
-private $desc;
+private $descr;
   /**
      * One Product has Many Features.
      * @OneToMany(targetEntity="Point", mappedBy="trail")
      */
 private $points;
-public function __construct($id = 0,$title= "" ,$desc="",$points= array()){
+public function __construct($id = 0,$title= "" ,$descr="",$points= array()){
 $this->id = $id;
 $this->title = $title;
-$this->desc = $desc;
+$this->descr = $descr;
 $this->points = $points;
 
 }
@@ -44,7 +44,7 @@ public static function construct($array){
 $obj = new Trail();
 $obj->setId( $array['id']);
 $obj->setTitle( $array['title']);
-$obj->setDesc( $array['desc']);
+$obj->setDescr( $array['descr']);
  //$obj->setPoints( $array['points']);
 return $obj;
 
@@ -66,12 +66,12 @@ public function setTitle($title){
  $this->title=$title;
 }
 
-public function getDesc(){
-return $this->desc;
+public function getDescr(){
+return $this->descr;
 }
 
-public function setDesc($desc){
- $this->desc=$desc;
+public function setDescr($descr){
+ $this->descr=$descr;
 }
 
 public function getPoints(){

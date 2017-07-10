@@ -25,7 +25,7 @@ private $title;
  *
  * @var string @Column(type="string", length=255)
  */
-private $desc;
+private $descr;
 /**
      * @OneToOne(targetEntity="Local")
      * @JoinColumn(name="local_id", referencedColumnName="id")
@@ -33,7 +33,7 @@ private $desc;
 private $local;
 
   /**
-     
+
      * @OneToMany(targetEntity="Image", mappedBy="point")
      */
 private $images;
@@ -42,12 +42,13 @@ private $images;
      * @ManyToOne(targetEntity="trail", inversedBy="points")
      * @JoinColumn(name="trail_id", referencedColumnName="id")
      */
-     
+
+
      private $trail;
-public function __construct($id = 0,$title="",$desc= "" ,$local= null ,$images= array()){
+public function __construct($id = 0,$title="",$descr= "" ,$local= null ,$images= array()){
 $this->id = $id;
 $this->title = $title;
-$this->desc = $desc;
+$this->descr = $descr;
 $this->local = $local;
 $this->images = $images;
 
@@ -57,7 +58,7 @@ public static function construct($array){
 $obj = new Point();
 $obj->setId( $array['id']);
 $obj->setTitle( $array['title']);
-$obj->setDesc( $array['desc']);
+$obj->setDescr( $array['descr']);
 $obj->setLocal( $array['local']);
 $obj->setImages( $array['images']);
 return $obj;
@@ -80,12 +81,12 @@ public function setTitle($title){
  $this->title=$title;
 }
 
-public function getDesc(){
-return $this->desc;
+public function getDescr(){
+return $this->descr;
 }
 
-public function setDesc($desc){
- $this->desc=$desc;
+public function setDescr($descr){
+ $this->descr=$descr;
 }
 
 public function getLocal(){
@@ -120,7 +121,7 @@ return false;
 
 }
 
-if($this->desc!=$object->desc){
+if($this->descr!=$object->descr){
 return false;
 
 }
@@ -146,7 +147,13 @@ return false;
 
 public function toString(){
 
- return "  [id:" .$this->id. "]  [desc:" .$this->desc. "]  [local:" .$this->local. "]  [images:" .$this->images. "]  " ;
+ return "  [id:" .$this->id. "]  [descr:" .$this->descr. "]  [local:" .$this->local. "]  [images:" .$this->images. "]  " ;
 }
+
+public function getAvoidedFields() {
+  $returned = parent::getAvoidedFields();
+  $returned[] = "trail";
+		return $returned;
+	}
 
 }
