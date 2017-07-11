@@ -3,6 +3,8 @@ namespace TrilhasInterpretativas\Entity;
 
 use Doctrine\ORM\Mapping;
 use TrilhasInterpretativas\Entity\Entity;
+use TrilhasInterpretativas\Entity\Local;
+use TrilhasInterpretativas\Entity\Image;
 
 /**
  * @Entity
@@ -27,19 +29,19 @@ private $title;
  */
 private $descr;
 /**
-     * @OneToOne(targetEntity="Local")
+     * @OneToOne(targetEntity="Local",cascade={"persist","remove"})
      * @JoinColumn(name="local_id", referencedColumnName="id")
      */
 private $local;
 
   /**
 
-     * @OneToMany(targetEntity="Image", mappedBy="point")
+     * @OneToMany(targetEntity="Image", mappedBy="point",cascade={"persist","remove"})
      */
 private $images;
     /**
      * Many Features have One Product.
-     * @ManyToOne(targetEntity="trail", inversedBy="points")
+     * @ManyToOne(targetEntity="trail", inversedBy="points",cascade={"detach"})
      * @JoinColumn(name="trail_id", referencedColumnName="id")
      */
 
@@ -59,8 +61,14 @@ $obj = new Point();
 $obj->setId( $array['id']);
 $obj->setTitle( $array['title']);
 $obj->setDescr( $array['descr']);
-$obj->setLocal( $array['local']);
+
+$objLocal = Local::construct($array['local']);
+$obj->setLocal($objLocal);
+if(array_key_exists ('images',$array ))
 $obj->setImages( $array['images']);
+else {
+  $obj->setImages( array());
+}
 return $obj;
 
 }
@@ -148,6 +156,11 @@ return false;
 public function toString(){
 
  return "  [id:" .$this->id. "]  [descr:" .$this->descr. "]  [local:" .$this->local. "]  [images:" .$this->images. "]  " ;
+}
+
+public function __toString(){
+
+ return "  [id:" .$this->id. "]  [descr:" .$this->descr. "]  [local:" .$this->local. "]  " ;
 }
 
 public function getAvoidedFields() {

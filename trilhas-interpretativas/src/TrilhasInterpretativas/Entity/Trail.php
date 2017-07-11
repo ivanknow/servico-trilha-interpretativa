@@ -29,7 +29,7 @@ private $title;
 private $descr;
   /**
      * One Product has Many Features.
-     * @OneToMany(targetEntity="Point", mappedBy="trail")
+     * @OneToMany(targetEntity="Point", mappedBy="trail",cascade={"persist","remove"})
      */
 private $points;
 public function __construct($id = 0,$title= "" ,$descr="",$points= array()){
@@ -111,5 +111,8 @@ public function toString(){
 
  return "  [id:" .$this->id. "]  [title:" .$this->title. "]  [points:" .$this->points. "]  " ;
 }
+public function __toString(){
 
+ return "  [id:" .$this->id. "]  [title:" .$this->title. "]  [points:" .$this->points. "]  " ;
+}
 }

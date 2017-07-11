@@ -115,5 +115,9 @@ public function toString(){
 
  return "  [id:" .$this->id. "]  [latitude:" .$this->latitude. "]  [longitude:" .$this->longitude. "]  [altitude:" .$this->altitude. "]  " ;
 }
+public function __toString(){
+
+return "  [id:" .$this->id. "]  [latitude:" .$this->latitude. "]  [longitude:" .$this->longitude. "]  [altitude:" .$this->altitude. "]  " ;
+}
 
 }

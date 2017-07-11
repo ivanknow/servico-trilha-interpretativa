@@ -21,7 +21,7 @@ class TrailMediator extends AbstractMediator{
 
 		$data = parent::get($id);
 		if(!is_array($data) && $data!=null){
-		$data->setPoints($this->pointMediator->get());
+		$data->setPoints($this->pointMediator->getByTrail($id));
 		}
 
 		return $data;
@@ -36,7 +36,8 @@ class TrailMediator extends AbstractMediator{
 
      public  function insert($trail){
 
-    	return $this->getDao()->insert ( $trail );
+    	$this->getDao()->insert ( $trail );
+			return true;
      }
 
 	 public  function update($id, $json){}

@@ -22,7 +22,7 @@ abstract class AbstractMediator {
 		$this->dao = $dao;
 	}
 
-	public function get($id) {
+	public function get($id=null) {
 		if ($id === null) {
 			$data = array ();
 			$result = $this->getDao()->findAll ();
@@ -33,7 +33,7 @@ abstract class AbstractMediator {
 			$obj = $this->getDao ()->findById ( $id );
 
 				$data = $obj;
-			
+
 
 		}
 		return $data;
