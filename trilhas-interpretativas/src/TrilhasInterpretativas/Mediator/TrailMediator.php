@@ -17,7 +17,7 @@ class TrailMediator extends AbstractMediator{
       $this->pointMediator =  new PointMediator();
 	}
 
-	public function get($id) {
+	public function get($id=null) {
 
 		$data = parent::get($id);
 		if(!is_array($data) && $data!=null){

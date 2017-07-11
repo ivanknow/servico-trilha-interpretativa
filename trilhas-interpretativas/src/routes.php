@@ -19,6 +19,9 @@ $app->get('/trailmock', function ($request, $response, $args) {
     $data = $mediator->getMock(0);
     return $response->withJson($data->toArray());
 });
+$app->get('/trailjson', function ($request, $response, $args) {
+    return $this->renderer->render($response, 'mock.json', $args);
+});
 
 $app->get('/trail/[{id}]', function ($request, $response, $args) {
     $mediator = new TrailMediator();

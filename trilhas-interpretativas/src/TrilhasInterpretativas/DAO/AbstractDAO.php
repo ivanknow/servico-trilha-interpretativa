@@ -7,8 +7,8 @@ use Doctrine\ORM\Tools\Setup;
 
 abstract class AbstractDAO {
 	public $entityManager;
-	private $entityPath;
-	
+	public $entityPath;
+
 	public function __construct($entityPath) {
 			$this->entityPath = $entityPath;
 			$this->entityManager = $this->createEntityManager ();

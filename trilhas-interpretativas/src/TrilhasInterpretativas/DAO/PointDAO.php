@@ -22,7 +22,7 @@ public function __construct() {
 
 
 	public function getByTrail($trailid){
-			$query = $this->entityManager->createQuery("SELECT t,p FROM TrilhasInterpretativas\Entity\Trail t JOIN t.points p WHERE t.id = ?1 ");
+			$query = $this->entityManager->createQuery("SELECT p FROM ". $this->entityPath." p WHERE p.trail = ?1 ");
 			$query->setParameter(1, $trailid);
 
 		$collection = $query->getResult();
